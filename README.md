@@ -8,7 +8,7 @@ A context aware tool to quickly capture exactly what you are looking for from an
 
 # How it works?
 
-1. Press `⌘ L` to open the popup from anywhere on your Mac.
+1. Press `⌘ L` (or set another hotkey) to open the popup from anywhere on your Mac.
 
 _The popup is context aware and will help you capture exactly what you are looking for_
 
