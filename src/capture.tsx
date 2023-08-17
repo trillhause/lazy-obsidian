@@ -93,12 +93,6 @@ export default function Capture() {
         if (url && title) {
           setSelectedResource(url);
           setResourceInfo(title);
-          showToast({
-            style: Toast.Style.Success,
-            title: "Link captured",
-          });
-        } else {
-          throw new Error("Failed to retrieve link information.");
         }
       } catch (error) {}
 
@@ -106,16 +100,31 @@ export default function Capture() {
         const data = await getSelectedText();
         if (data) {
           setSelectedText(data);
-          showToast({
-            style: Toast.Style.Success,
-            title: "Selected text captured",
-          });
         }
       } catch (error) {}
     };
 
     setText();
   }, []);
+
+  useEffect(() => {
+    if (selectedText && selectedResource) {
+      showToast({
+        style: Toast.Style.Success,
+        title: "Highlighted text & Source captured",
+      });
+    } else if (selectedText) {
+      showToast({
+        style: Toast.Style.Success,
+        title: "Highlighted text captured",
+      });
+    } else if (selectedResource) {
+      showToast({
+        style: Toast.Style.Success,
+        title: "Link captured",
+      });
+    }
+  }, [selectedText, selectedResource]);
 
   return (
     <>
