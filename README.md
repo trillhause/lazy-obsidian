@@ -1,4 +1,4 @@
-# Lazy Obsidian
+# [Lazy Obsidian](https://lazyobsidian.typedream.app)
 
 **Lazily capture anything to Obsidian**
 
