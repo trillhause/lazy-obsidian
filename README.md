@@ -1,4 +1,4 @@
-# lazy-obsidian
+# Lazy Obsidian
 
 **Lazily capture anything to Obsidian**
 
@@ -19,3 +19,7 @@ _The popup is context aware and will help you capture exactly what you are looki
 _Advanced Obsidian users can run custom scripts upon capture using Templater plugin_
 
 <img src="https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/note.png" width="600">
+
+# Requirements
+
+Requires [Obsidian](https://obsidian.md) & [Requires AdvancedURI plugin](https://vinzent03.github.io/obsidian-advanced-uri/)
