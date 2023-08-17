@@ -12,14 +12,22 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "smart-capture-into-obdisian",
-      "title": "Smart Capture into Obdisian",
+      "name": "capture",
+      "title": "Smart Capture into Obsidian",
+      "description": "Capture whats on your screen into obsidian",
+      "mode": "view"
+    },
+    {
+      "name": "settings",
+      "title": "Obsidian Smart Capture Settings",
       "description": "Capture whats on your screen into obsidian",
       "mode": "view"
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.56.1"
+    "@raycast/api": "^1.56.1",
+    "run-applescript": "^6.1.0",
+    "yaml": "^2.3.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "1.0.5",

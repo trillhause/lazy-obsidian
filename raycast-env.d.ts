@@ -13,13 +13,17 @@ type ExtensionPreferences = {}
 declare type Preferences = ExtensionPreferences
 
 declare namespace Preferences {
-  /** Preferences accessible in the `smart-capture-into-obdisian` command */
-  export type SmartCaptureIntoObdisian = ExtensionPreferences & {}
+  /** Preferences accessible in the `capture` command */
+  export type Capture = ExtensionPreferences & {}
+  /** Preferences accessible in the `settings` command */
+  export type Settings = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
-  /** Arguments passed to the `smart-capture-into-obdisian` command */
-  export type SmartCaptureIntoObdisian = {}
+  /** Arguments passed to the `capture` command */
+  export type Capture = {}
+  /** Arguments passed to the `settings` command */
+  export type Settings = {}
 }
 
 
