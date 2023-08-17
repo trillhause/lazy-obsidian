@@ -13,14 +13,14 @@
   "commands": [
     {
       "name": "capture",
-      "title": "Smart Capture into Obsidian",
+      "title": "Obsidian Smart Capture",
       "description": "Capture whats on your screen into obsidian",
       "mode": "view"
     },
     {
       "name": "settings",
       "title": "Obsidian Smart Capture Settings",
-      "description": "Capture whats on your screen into obsidian",
+      "description": "Settings for Obsidian Smart Capture",
       "mode": "view"
     }
   ],
