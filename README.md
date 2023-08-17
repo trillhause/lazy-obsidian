@@ -1,12 +1,12 @@
 # lazy-obsidian
 
-## Lazily capture anything to Obsidian
+**Lazily capture anything to Obsidian**
 
 A context aware tool to quickly capture exactly what you are looking for from anywhere on your Mac
 
 <img src="https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/demo.gif" width="500">
 
-### How it works?
+# How it works?
 
 1. Press `⌘ L` to open the popup from anywhere on your Mac.
 
