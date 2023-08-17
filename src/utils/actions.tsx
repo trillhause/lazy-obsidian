@@ -9,7 +9,6 @@ import { Note, Vault } from "./interfaces";
 import { NoteQuickLook } from "../components/NoteQuickLook";
 import { appendSelectedTextTo, getObsidianTarget, vaultPluginCheck, getCodeBlocks, ObsidianTargetType } from "./utils";
 import { ObsidianIcon, PrimaryAction } from "./constants";
-import { NoteList } from "../components/NoteList/NoteList";
 import { SearchNotePreferences } from "./preferences";
 import { NoteReducerActionType } from "./data/reducers";
 import { useNotesDispatchContext } from "./hooks";
@@ -206,33 +205,6 @@ export function ShowVaultInFinderAction(props: { vault: Vault }) {
   return <Action.ShowInFinder title="Show in Finder" icon={Icon.Finder} path={vault.path} />;
 }
 
-export function ShowMentioningNotesAction(props: { vault: Vault; str: string; notes: Note[] }) {
-  const { vault, str, notes } = props;
-  const filteredNotes = notes.filter((note: Note) => note.content.includes(str));
-  const count = filteredNotes.length;
-  if (count > 0) {
-    const list = (
-      <NoteList
-        vault={vault}
-        notes={filteredNotes}
-        searchArguments={{ searchArgument: "", tagArgument: "" }}
-        title={`${count} notes mentioning "${str}"`}
-        action={(note: Note, vault: Vault) => {
-          return (
-            <React.Fragment>
-              <OpenNoteActions note={note} notes={notes} vault={vault} />
-              <NoteActions note={note} notes={notes} vault={vault} />
-            </React.Fragment>
-          );
-        }}
-      />
-    );
-    return <Action.Push title={`Show Mentioning Notes (${count})`} target={list} icon={Icon.Megaphone} />;
-  } else {
-    return <React.Fragment></React.Fragment>;
-  }
-}
-
 export function CopyCodeAction(props: { note: Note }) {
   const { note } = props;
   const codeBlocks = getCodeBlocks(note.content);
@@ -281,7 +253,6 @@ export function NoteActions(props: { notes: Note[]; note: Note; vault: Vault }) 
   return (
     <React.Fragment>
       <ShowPathInFinderAction path={note.path} />
-      <ShowMentioningNotesAction vault={vault} str={note.title} notes={notes} />
       {note.bookmarked ? (
         <UnbookmarkNoteAction note={note} vault={vault} />
       ) : (
