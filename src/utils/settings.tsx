@@ -1,25 +1,14 @@
 // Command to create settings for the app
-import {
-  Action,
-  ActionPanel,
-  List,
-  popToRoot,
-  Form,
-  LocalStorage,
-  showToast,
-  Toast,
-} from "@raycast/api";
+import { Action, ActionPanel, List, popToRoot, Form, LocalStorage, showToast, Toast } from "@raycast/api";
 
-import { useObsidianVaults } from "./utils/utils";
-import { NoVaultFoundMessage } from "./components/Notifications/NoVaultFoundMessage";
+import { useObsidianVaults } from "../utils/utils";
+import { NoVaultFoundMessage } from "../components/Notifications/NoVaultFoundMessage";
 import { useState } from "react";
 
 export default function Settings() {
   const { ready, vaults: allVaults } = useObsidianVaults();
 
-  const [defaultVault, setDefaultVault] = useState<string | undefined>(
-    undefined
-  );
+  const [defaultVault, setDefaultVault] = useState<string | undefined>(undefined);
 
   const [defaultPath, setDefaultPath] = useState<string | undefined>(undefined);
 
@@ -63,21 +52,13 @@ export default function Settings() {
           navigationTitle="Lazy Obsidian Settings"
           actions={
             <ActionPanel>
-              <Action.SubmitForm
-                title="Save Settings"
-                onSubmit={saveSettings}
-              />
+              <Action.SubmitForm title="Save Settings" onSubmit={saveSettings} />
             </ActionPanel>
           }
         >
           <Form.Dropdown id="vault" title="Vault" defaultValue={defaultVault}>
             {allVaults.map((vault) => (
-              <Form.Dropdown.Item
-                key={vault.key}
-                value={vault.name}
-                title={vault.name}
-                icon="🧳"
-              />
+              <Form.Dropdown.Item key={vault.key} value={vault.name} title={vault.name} icon="🧳" />
             ))}
           </Form.Dropdown>
           <Form.TextField
