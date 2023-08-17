@@ -58,7 +58,7 @@ export default function Capture() {
       open(target);
       popToRoot();
       closeMainWindow();
-      showHUD("Note Captured 🧞‍♂️", { clearRootSearch: true });
+      showHUD("Note Captured", { clearRootSearch: true });
     } catch (e) {
       showToast({
         style: Toast.Style.Failure,
@@ -73,10 +73,9 @@ export default function Capture() {
     const target = `obsidian://advanced-uri?vault=${encodeURIComponent(vault)}&filepath=${encodeURIComponent(
       path
     )}/${encodeURIComponent(fileName)}&data=${encodeURIComponent(formatData(content, link, highlight))}`;
-    console.log(target);
     open(target);
     popToRoot();
-    await showHUD("Note Captured 🧞‍♂️", { clearRootSearch: true });
+    showHUD("Note Captured", { clearRootSearch: true });
   }
 
   const [selectedText, setSelectedText] = useState<string>("");
@@ -133,6 +132,15 @@ export default function Capture() {
         actions={
           <ActionPanel>
             <Action.SubmitForm title="Capture" onSubmit={createNewNote} />
+            <Action
+              title="Clear Capture"
+              shortcut={{ modifiers: ["opt"], key: "backspace" }}
+              onAction={() => {
+                setResourceInfo("");
+                setSelectedResource("");
+                setSelectedText("");
+              }}
+            />
           </ActionPanel>
         }
       >
