@@ -12,14 +12,18 @@ import {
   LocalStorage,
   popToRoot,
   closeMainWindow,
+  List,
 } from "@raycast/api";
 import { useEffect, useState } from "react";
 import { runAppleScript } from "run-applescript";
 import { GET_LINK_INFO_SCRIPT } from "./scripts/get-link";
-import { useObsidianVaults } from "./utils/utils";
+import { useObsidianVaults, vaultPluginCheck } from "./utils/utils";
+import { NoVaultFoundMessage } from "./components/Notifications/NoVaultFoundMessage";
+import AdvancedURIPluginNotInstalled from "./components/Notifications/AdvancedURIPluginNotInstalled";
 
 export default function Capture() {
   const { ready, vaults: allVaults } = useObsidianVaults();
+  const [vaultsWithPlugin, vaultsWithoutPlugin] = vaultPluginCheck(allVaults, "obsidian-advanced-uri");
 
   const [defaultVault, setDefaultVault] = useState<string | undefined>(undefined);
   const [defaultPath, setDefaultPath] = useState<string | undefined>(undefined);
@@ -125,8 +129,14 @@ export default function Capture() {
     }
   }, [selectedText, selectedResource]);
 
-  return (
-    <>
+  if (!ready) {
+    return <List isLoading={true}></List>;
+  } else if (allVaults.length === 0) {
+    return <NoVaultFoundMessage />;
+  } else if (vaultsWithPlugin.length === 0) {
+    return <AdvancedURIPluginNotInstalled />;
+  } else if (vaultsWithPlugin.length >= 1) {
+    return (
       <Form
         navigationTitle={"Smart Capture"}
         actions={
@@ -148,9 +158,9 @@ export default function Capture() {
           </ActionPanel>
         }
       >
-        {ready && allVaults.length > 1 && (
+        {ready && vaultsWithPlugin.length > 1 && (
           <Form.Dropdown id="vault" title="Vault" defaultValue={defaultVault}>
-            {allVaults.map((vault) => (
+            {vaultsWithPlugin.map((vault) => (
               <Form.Dropdown.Item key={vault.key} value={vault.name} title={vault.name} icon="🧳" />
             ))}
           </Form.Dropdown>
@@ -187,6 +197,6 @@ export default function Capture() {
         )}
         {selectedText && includeHighlight && <Form.Description title="Highlight" text={selectedText} />}
       </Form>
-    </>
-  );
+    );
+  }
 }
