@@ -139,6 +139,10 @@ export default function Capture() {
                 setResourceInfo("");
                 setSelectedResource("");
                 setSelectedText("");
+                showToast({
+                  style: Toast.Style.Success,
+                  title: "Capture Cleared",
+                });
               }}
             />
           </ActionPanel>
