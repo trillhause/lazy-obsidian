@@ -4,7 +4,7 @@
 
 A context aware tool to quickly capture exactly what you are looking for from anywhere on your Mac
 
-![Demo](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/demo.gif)
+![Demo](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/demo.gif | width=400)
 
 ### How it works?
 
@@ -12,10 +12,10 @@ A context aware tool to quickly capture exactly what you are looking for from an
 
 _The popup is context aware and will help you capture exactly what you are looking for_
 
-![Popup](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/popup.png)
+![Popup](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/popup.png | width=600)
 
-2. Press ⌘ ⏎ to create a new Obsidian Note!
+2. Press `⌘ ⏎` to create a new Obsidian Note!
 
 _Advanced Obsidian users can run custom scripts upon capture using Templater plugin_
 
-![Advanced Power Law](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/note.png)
+![Advanced Power Law](https://raw.githubusercontent.com/trillhause/lazy-obsidian/main/note.png | width=600)
