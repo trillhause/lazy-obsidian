@@ -5,7 +5,6 @@
   "description": "Context aware quick capture for Obsidian",
   "icon": "command-icon.png",
   "author": "millin_gabani",
-  "owner": "trillhouse",
   "categories": [
     "Productivity"
   ],
